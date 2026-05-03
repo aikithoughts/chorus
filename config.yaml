@@ -1,0 +1,27 @@
+# Project Chorus Configuration
+# ─────────────────────────────
+
+# Model settings
+model_id: claude-sonnet-4-20250514
+max_tokens: 1028
+temperature: 0.3
+
+# Chorus settings
+voices: 5
+# Document handling
+# max_chars: leave unset to send the full document (recommended).
+# Set a number only if you need to limit costs on very long documents.
+# max_chars: 15000
+
+# Facet weights (should sum to 100)
+# Meaning gets the highest weight as the foundation of all quality.
+# Discoverability is set to 0 because it requires cross-page context
+# that single-page evaluation cannot provide. Enable it when site
+# crawl mode is available.
+weights:
+  accuracy: 22
+  completeness: 20
+  conciseness: 16
+  discoverability: 0
+  consistency: 20
+  meaning: 22

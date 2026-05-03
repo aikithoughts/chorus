@@ -1,0 +1,4 @@
+strands-agents[anthropic]
+requests
+beautifulsoup4
+pyyaml
