@@ -122,7 +122,7 @@ The ± number after each score is the standard deviation — how much the voices
 
 ### Justifications
 
-Each voice provides a 2-3 sentence explanation of its score. These are the most valuable part of the output — especially when voices disagree. They reference framework concepts: the Content Void, the Oracle Fallacy, the Academic Trap, the three levels of meaning, and other patterns from the rubrics.
+Each voice provides a 2-3 sentence explanation of its score. These are the most valuable part of the output — especially when voices disagree. They reference framework concepts such as the Content Void, the Academic Trap, the three levels of meaning, and other patterns from the rubrics.
 
 ## Configuration
 
