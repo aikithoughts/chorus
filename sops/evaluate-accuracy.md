@@ -27,7 +27,7 @@ Assess whether the information is accurate *for the identified audience and thei
 
 **Constraints:**
 - You MUST evaluate whether the depth of accuracy is appropriate for the audience — not too shallow for the task, not so deep it overwhelms.
-- You MUST check whether the document avoids the **Expert Bubble**: assuming knowledge the target audience may not have without providing context or links.
+- You MUST check whether the document shows signs of the **curse of knowledge**: assuming knowledge the target audience may not have without providing context or links.
 - You SHOULD check whether code examples, parameters, endpoints, and technical details are internally consistent within the document.
 - You SHOULD assess whether the document uses terminology correctly and consistently.
 - You MAY note places where accuracy is calibrated well (e.g., appropriately simplified for beginners, or appropriately detailed for advanced users).
@@ -37,9 +37,9 @@ Assess whether the information is accurate *for the identified audience and thei
 Evaluate whether the document falls into known anti-patterns that undermine accuracy.
 
 **Constraints:**
-- You MUST check for the **Oracle Fallacy**: documentation promising more certainty than the product can deliver (e.g., guaranteeing behavior for experimental features, claiming unlimited scalability without qualification).
-- You MUST check for the **Perfectionist Trap**: whether accuracy concerns may have led to missing or delayed content that users need now.
-- You SHOULD check for the **Static Mindset**: signals that accuracy was treated as a one-time achievement rather than ongoing maintenance (e.g., outdated version numbers, deprecated references, stale screenshots).
+- You MUST check for **overpromising**: documentation promising more certainty than the product can deliver (e.g., guaranteeing behavior for experimental features, claiming unlimited scalability without qualification).
+- You MUST check whether accuracy concerns may have led to missing or delayed content that users need now ("don't let perfect be the enemy of good").
+- You SHOULD check for signs of a declining **quality trajectory**: signals that accuracy was treated as a one-time achievement rather than ongoing maintenance (e.g., outdated version numbers, deprecated references, stale screenshots).
 - You SHOULD verify that the document clearly signals when information is experimental, beta, or subject to change.
 - You MAY note whether the document's accuracy is calibrated to product maturity — beta docs should not make GA-level promises, and GA docs should not feel experimental.
 
@@ -62,7 +62,7 @@ Assign a score from 0-100 and provide a justification.
   - **90-100**: Accuracy is calibrated precisely to the audience and product maturity. No misleading information. Appropriate depth throughout. Would serve as a model.
   - **75-89**: Accurate for the target audience with only minor issues. Users would succeed based on this content.
   - **60-74**: Generally accurate but with noticeable issues — some audience mismatch, inconsistent depth, or minor misleading elements.
-  - **40-59**: Significant accuracy problems that would impair user success — wrong audience calibration, Oracle Fallacy present, Expert Bubble unaddressed.
+  - **40-59**: Significant accuracy problems that would impair user success — wrong audience calibration, overpromising, or unaddressed curse of knowledge.
   - **Below 40**: Major accuracy failures that would mislead users or create false confidence in unreliable information.
 - You MUST provide a 2-3 sentence justification referencing specific aspects of the document and connecting them to the evaluation criteria above.
 - You MUST respond with ONLY valid JSON: `{"score": <integer>, "justification": "<string>"}`
@@ -71,8 +71,8 @@ Assign a score from 0-100 and provide a justification.
 
 **Input:** API documentation for a mature payment processing platform that explains OAuth 2.0 authentication as "Configure your authentication as needed."
 
-**Expected assessment:** Low accuracy score (40-55) due to Expert Bubble — the instruction assumes familiarity with OAuth 2.0 that the apparent audience (developers integrating payments) may not have. The vagueness makes technically accurate information practically useless.
+**Expected assessment:** Low accuracy score (40-55) due to the curse of knowledge — the instruction assumes familiarity with OAuth 2.0 that the apparent audience (developers integrating payments) may not have. The vagueness makes technically accurate information practically useless.
 
 **Input:** Beta feature documentation that clearly labels experimental status, documents core happy-path behavior precisely, and notes known limitations.
 
-**Expected assessment:** High accuracy score (80-90) — accuracy is well-calibrated to product maturity. Avoids the Oracle Fallacy by being transparent about limitations while being precise about what works.
+**Expected assessment:** High accuracy score (80-90) — accuracy is well-calibrated to product maturity. Avoids overpromising by being transparent about limitations while being precise about what works.
